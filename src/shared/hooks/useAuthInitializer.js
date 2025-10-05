@@ -8,7 +8,7 @@ import { paths } from "../../routes/paths.jsx";
 
 export const useAuthInitializer = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   useEffect(() => {
     async function checkLogin() {
       try {
@@ -27,7 +27,7 @@ export const useAuthInitializer = () => {
             id: userData?.id,
           })
         );
-        navigate(paths.HOME, { replace: true });
+        // navigate(paths.HOME, { replace: true });
       } catch (error) {
         dispatch(singOffCase());
       }

@@ -15,44 +15,48 @@ const ParkingLayout = lazy(async () => {
   return import("../parking/layouts/ParkingLayout");
 });
 
-export const AppRouter = () => {
-  
-  const { isLogged } = useSelector((state) => state.auth);
-  return (
-    <BrowserRouter>
-      <AuthInitializerWrapper isLogged={isLogged} />
-    </BrowserRouter>
-  );
-};
+// export const AppRouter = () => {
+//   const { isLogged } = useSelector((state) => state.auth);
 
-export const AuthInitializerWrapper = ({ isLogged }) => {
+//   return (
+//     <BrowserRouter>
+//       <AuthInitializerWrapper isLogged={isLogged} />
+//     </BrowserRouter>
+//   );
+// };
+
+export const AppRouter = () => {
+  const { isLogged } = useSelector((state) => state.auth);
+
   useAuthInitializer();
   return (
-    <Routes>
-      <Route path={paths.LOGIN} element={<AuthLayout />}>
-        <Route index element={<Login />} />
-      </Route>
+    <BrowserRouter>
+      <Routes>
+        <Route path={paths.LOGIN} element={<AuthLayout />}>
+          <Route index element={<Login />} />
+        </Route>
 
-      <Route
-        path={paths.HOME}
-        element={
-          <Suspense
-            fallback={
-              <div className="w-full h-screen flex justify-center items-center bg-bg-template">
-                <SpinnerLogin />
-              </div>
-            }
-          >
-            <PrivateRoute isAuthenticated={isLogged}>
-              <ParkingLayout />
-            </PrivateRoute>
-          </Suspense>
-        }
-      >
-        <Route index element={<DashboardV />} />
-      </Route>
+        <Route
+          path={paths.HOME}
+          element={
+            <Suspense
+              fallback={
+                <div className="w-full h-screen flex justify-center items-center bg-bg-template">
+                  <SpinnerLogin />
+                </div>
+              }
+            >
+              <PrivateRoute isAuthenticated={isLogged}>
+                <ParkingLayout />
+              </PrivateRoute>
+            </Suspense>
+          }
+        >
+          <Route index element={<DashboardV />} />
+        </Route>
 
-      <Route path="*" element={<Navigate to={paths.LOGIN} />} />
-    </Routes>
+        <Route path="*" element={<Navigate to={paths.LOGIN} />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
