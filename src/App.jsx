@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { AppRouter } from "./routes/AppRouter";
+import { TanStackProvider } from "./plugins/TanStackProvider";
+import { HeroUIProvider } from "@heroui/system";
+import { Provider } from "react-redux";
+import { store, persistor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+import { SpinnerLogin } from "./shared/components/spinners/spinnerLogin/SpinnerLogin";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Provider store={store}>
+        <PersistGate
+          loading={
+            <div className="w-full h-screen flex justify-center items-center">
+              <SpinnerLogin />
+            </div>
+          }
+          persistor={persistor}
+        >
+          <HeroUIProvider>
+            <TanStackProvider>
+              <AppRouter />
+            </TanStackProvider>
+          </HeroUIProvider>
+        </PersistGate>
+      </Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
