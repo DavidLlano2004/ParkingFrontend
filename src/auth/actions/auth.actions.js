@@ -36,3 +36,17 @@ export const verifyTokenRequest = async () => {
     );
   }
 };
+
+export const logoutAction = async () => {
+  try {
+    const response = await axiosClientApp.post("/logout");
+    return response;
+  } catch (error) {
+    throw (
+      error.response?.data || {
+        message: "Error inesperado al recuperar el token",
+        error,
+      }
+    );
+  }
+};

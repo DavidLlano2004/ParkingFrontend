@@ -1,8 +1,19 @@
 export const paths = {
-    //Auth
-    LOGIN:"/auth",
+  //Auth
+  LOGIN: "/auth",
 
-    //Home app
-    HOME:"/home"
+  LAYOUT: "/",
 
-}
+  //Admin
+  PARKINGS: "/parkings",
+  USERS: "/users",
+
+  //Employee
+  REGISTERVEHICLE: "/register",
+
+  //General
+  SETTINGS: "/settings",
+
+  //UNAUTHORIZED
+  UNAUTHORIZED: "/error",
+};

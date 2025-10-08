@@ -96,9 +96,9 @@ export const InputPassword = ({ control, nameRegister, validations }) => {
           classNames={{
             base: "w-full",
             inputWrapper:
-              "border border-gray-1-custom rounded-[20px] py-3 px-5",
+              "border border-gray-1-custom rounded-[20px] lg:py-2 p-1 px-5 h-[56px]",
             label: "font-semibold", // si tu app es modo oscuro
-            input: "text-black-custom",
+            input: "text-black-custom text-base",
           }}
         />
       )}

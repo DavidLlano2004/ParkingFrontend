@@ -13,17 +13,14 @@ export const useLogin = () => {
     mutationFn: async (dataForm) => loginAction(dataForm),
     onSuccess: async (data) => {
 
-      console.log(data);
-      
-
       dispatch(
         loginCase({
           id: data?.id,
+          rol: data?.rol,
         })
       );
 
-      navigate(paths.HOME, { replace: true });
-
+      navigate(paths.LAYOUT, { replace: true });
     },
   });
   return { mutationLogin };

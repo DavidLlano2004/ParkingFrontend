@@ -42,7 +42,7 @@ export const FormLogin = () => {
           isLoading={mutationLogin.isPending}
           spinnerPlacement="start"
           type="submit"
-          className="bg-black-custom text-white w-full rounded-[60px] h-[56px] text-lg"
+          className="bg-black-custom text-white w-full rounded-[60px] xl:h-[56px] h-[50px] text-lg"
         >
           Ingresar
         </Button>

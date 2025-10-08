@@ -14,8 +14,6 @@ export const useAuthInitializer = () => {
       try {
         const res = await verifyTokenRequest();
 
-        console.log(res);
-
         if (!res?.data?.response) {
           dispatch(singOffCase());
           return;
@@ -25,9 +23,9 @@ export const useAuthInitializer = () => {
         dispatch(
           loginCase({
             id: userData?.id,
+            rol: userData?.rol,
           })
         );
-        // navigate(paths.HOME, { replace: true });
       } catch (error) {
         dispatch(singOffCase());
       }
