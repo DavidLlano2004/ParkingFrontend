@@ -11,6 +11,7 @@ import { Users } from "../parking/pages/admin/Users";
 import { Settings } from "../parking/pages/Settings";
 import { Dashboard } from "../parking/pages/employee/Dashboard";
 import { RegisterVehicle } from "../parking/pages/employee/RegisterVehicle";
+import { AuthLayout } from "../auth/layouts/AuthLayout";
 
 const delayImport = (importPromise) =>
   new Promise((resolve) => {
@@ -19,9 +20,6 @@ const delayImport = (importPromise) =>
 
 const ParkingLayout = lazy(() =>
   delayImport(import("../parking/layouts/ParkingLayout"))
-);
-const AuthLayout = lazy(() =>
-  delayImport(import("../auth/layouts/AuthLayout"))
 );
 
 export const AppRouter = () => {

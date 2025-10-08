@@ -1,14 +1,10 @@
-import React from "react";
 import { Icons } from "../../assets/icons/IconsProvider";
 import { Images } from "../../assets/images/ImagesProvider";
-import { Button } from "@heroui/button";
-import { InputPassword } from "../../shared/components/inputs/InputPassword";
-import { InputSimple } from "../../shared/components/inputs/InputSimple";
 import { Outlet } from "react-router";
 const { IconCarBlack, IconMotorByBlack } = Icons;
 const { ImageCarGroupMotorByLarge } = Images;
 
-export default function AuthLayout() {
+export const AuthLayout = ()=> {
   return (
     <main className="bg-bg-template w-full h-screen flex lg:flex-row flex-col lg:p-3 p-0 gap-4 lg:overflow-hidden">
       <article className="bg-black-custom flex-1 lg:rounded-[60px] rounded-br-[60px] rounded-bl-[60px] py-10 lg:px-16 px-10 flex-col flex">

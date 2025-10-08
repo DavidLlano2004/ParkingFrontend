@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { SpinnerLogin } from "./shared/components/spinners/spinnerLogin/SpinnerLogin";
+import { ToastProvider } from "@heroui/react";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
           persistor={persistor}
         >
           <HeroUIProvider>
+            <ToastProvider
+              placement="top-right"
+              toastProps={{ timeout: 4000 }}
+            />
             <TanStackProvider>
               <AppRouter />
             </TanStackProvider>

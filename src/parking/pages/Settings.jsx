@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 export const Settings = () => {
   return (
-    <div>Settings</div>
-  )
-}
+    <section className=" bg-white flex-12 rounded-[30px] px-10 py-8">Settings</section>
+  );
+};

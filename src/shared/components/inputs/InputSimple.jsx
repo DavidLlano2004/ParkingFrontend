@@ -6,6 +6,9 @@ export const InputSimple = ({
   nameRegister,
   validations,
   label = "Escriba",
+  endContent,
+  heightInput = "h-[56px]",
+  type = "text",
   ...rest
 }) => {
   return (
@@ -26,11 +29,12 @@ export const InputSimple = ({
           errorMessage={fieldState.error?.message}
           classNames={{
             base: "w-full",
-            inputWrapper:
-              "border border-gray-1-custom rounded-[20px] lg:py-2 p-1 px-5 h-[56px]",
+            inputWrapper: `border border-gray-1-custom rounded-[25px] p-1 px-5 ${heightInput}`,
             label: "font-semibold",
             input: "text-black-custom text-base",
           }}
+          type={type}
+          endContent={endContent}
         />
       )}
     />
